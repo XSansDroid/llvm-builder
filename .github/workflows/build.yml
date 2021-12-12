@@ -23,7 +23,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         GH_PUSH_REPO_URL: ${{ secrets.GH_PUSH_REPO_URL }}
       run: |
-        sudo apt-get install -y cmake curl git ninja
+        apt-get install -y cmake curl git ninja
         git clone -b llvm-tc https://github.com/XSansDroid/clang_builder_script script
         cd script
         ./build-tc.sh
