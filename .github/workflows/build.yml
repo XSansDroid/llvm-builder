@@ -1,0 +1,28 @@
+name: XSansTC Clang
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container: 
+      image: zycromerz/kerneldocker:v3
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Clang Builder
+      env:
+        LLVM_NAME: ${{ secrets.LLVM_NAME }}
+        TG_TOKEN: ${{ secrets.TG_TOKEN }}
+        TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        GH_USERNAME: ${{ secrets.GH_USERNAME }}
+        GH_EMAIL: ${{ secrets.GH_EMAIL }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GH_PUSH_REPO_URL: ${{ secrets.GH_PUSH_REPO_URL }}
+      run: |
+        git clone -b llvm-tc https://github.com/XSansDroid/clang_builder_script script
+        cd script
+        ./build-tc.sh
