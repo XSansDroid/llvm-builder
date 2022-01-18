@@ -16,8 +16,8 @@ jobs:
     - name: Clang Builder
       env:
         LLVM_NAME: ${{ secrets.LLVM_NAME }}
-        TG_TOKEN: ${{ secrets.TG_TOKEN }}
-        TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
         GH_USERNAME: ${{ secrets.GH_USERNAME }}
         GH_EMAIL: ${{ secrets.GH_EMAIL }}
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
