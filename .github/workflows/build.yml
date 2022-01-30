@@ -24,6 +24,6 @@ jobs:
         GH_PUSH_REPO_URL: ${{ secrets.GH_PUSH_REPO_URL }}
       run: |
         apt-get install -y cmake curl git ninja-build
-        git clone -b llvmtc https://github.com/XSansDroid/clang-script script
+        git clone -b clang XSansDroid/clang-script script
         cd script
         bash goBuild
