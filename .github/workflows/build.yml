@@ -1,19 +1,14 @@
 name: XSansTC Clang
-
-on: 
-  workflow_dispatch:
-
+on:
+  push:
+  schedule:
+    - cron: '* */6 * * *'
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    container: 
-      image: zycromerz/kerneldocker:v3
-
     steps:
     - uses: actions/checkout@v2
-    - name: Clang Builder
+    - name: Start Building
       env:
         LLVM_NAME: ${{ secrets.LLVM_NAME }}
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -23,8 +18,9 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         GH_PUSH_REPO_URL: ${{ secrets.GH_PUSH_REPO_URL }}
         TYPE: ${{ secrets.TYPE }}
+        REAL_CHANNEL: ${{ secrets.REAL_CHANNEL }}
       run: |
-        apt-get install -y cmake curl git ninja-build
         git clone -b clang https://github.com/XSans02/my-script script
         cd script
+        bash ci.sh
         bash goBuild
