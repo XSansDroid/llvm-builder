@@ -2,7 +2,7 @@ name: XSansTC Clang
 on:
   push:
   schedule:
-    - cron: '* */6 * * *'
+    - cron: '0 */6 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
