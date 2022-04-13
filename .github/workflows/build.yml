@@ -10,17 +10,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Start Building
       env:
-        LLVM_NAME: ${{ secrets.LLVM_NAME }}
-        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-        GH_USERNAME: ${{ secrets.GH_USERNAME }}
-        GH_EMAIL: ${{ secrets.GH_EMAIL }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        GH_PUSH_REPO_URL: ${{ secrets.GH_PUSH_REPO_URL }}
-        TYPE: ${{ secrets.TYPE }}
-        REAL_CHANNEL: ${{ secrets.REAL_CHANNEL }}
+        GIT_MAIL: ${{ secrets.GIT_MAIL }}
+        GIT_PASS: ${{ secrets.GIT_PASS }}
+        GIT_REPO_URL: ${{ secrets.GIT_REPO_URL }}
+        GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
       run: |
-        git clone -b clang https://github.com/XSans02/my-script script
+        git clone -b new-clang https://github.com/XSans02/my-script script
         cd script
-        bash ci.sh deps
         bash goBuild
