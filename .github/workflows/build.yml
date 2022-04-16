@@ -1,4 +1,4 @@
-name: XSansTC Clang
+name: WeebX Clang
 on:
   push:
   schedule:
@@ -8,13 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Start Building
+    - name: Go Build
       env:
-        GIT_MAIL: ${{ secrets.GIT_MAIL }}
-        GIT_PASS: ${{ secrets.GIT_PASS }}
-        GIT_REPO_URL: ${{ secrets.GIT_REPO_URL }}
-        GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       run: |
-        git clone -b new-clang https://github.com/XSans02/my-script script
+        git clone -b weebx https://github.com/XSans02/my-script script
         cd script
+        bash ci.sh deps
         bash goBuild
