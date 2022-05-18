@@ -1,18 +1,17 @@
 name: WeebX Clang
-on:
-  push:
-  schedule:
-    - cron: '0 0 * * *'
+
+on: 
+  workflow_dispatch:
+  
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Go Build
       env:
         GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
       run: |
-        git clone -b weebx https://github.com/XSans02/my-script script
+        git clone -b new-clang https://github.com/XSans02/my-script script
         cd script
-        bash ci.sh deps
         bash goBuild
