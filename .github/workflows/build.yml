@@ -19,17 +19,17 @@ jobs:
         cd script
         bash goBuild latest
 
-  good-revision:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Building good revision
-      env:
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-      run: |
-        git clone -b new-clang https://github.com/XSans0/script
-        cd script
-        bash goBuild gr
+#  good-revision:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: Building good revision
+#      env:
+#        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+#      run: |
+#        git clone -b new-clang https://github.com/XSans0/script
+#        cd script
+#        bash goBuild gr
 
   fourteen:
     runs-on: ubuntu-latest
