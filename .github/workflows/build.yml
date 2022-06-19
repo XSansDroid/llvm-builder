@@ -19,7 +19,7 @@ jobs:
         cd script
         bash goBuild latest
 
-  good revision:
+  good-revision:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
         cd script
         bash goBuild gr
 
-  14.x:
+  14:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
