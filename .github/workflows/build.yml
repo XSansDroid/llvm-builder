@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Building clang latest
+    - name: Building latest
       run: |
         git clone https://github.com/XSans0/clang-build script
         cd script
         bash build-ci.sh main
 
-  fifteen:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Building clang 15.x
-      env:
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-      run: |
-        git clone https://github.com/XSans0/clang-build script
-        cd script
-        bash build-ci.sh release/15.x
+#  fifteen:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v3
+#    - name: Building 15.x
+#      env:
+#        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+#      run: |
+#        git clone https://github.com/XSans0/clang-build script
+#        cd script
+#         bash build-ci.sh release/15.x
