@@ -1,0 +1,20 @@
+name: WeebX Clang Latest
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'
+
+env:
+    GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+  
+jobs:
+  goBuild:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Building
+      run: |
+        git clone https://github.com/XSans0/clang-build script
+        cd script
+        bash build-ci.sh main
