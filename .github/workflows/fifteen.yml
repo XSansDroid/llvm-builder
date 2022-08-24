@@ -3,7 +3,7 @@ name: WeebX Clang 15.x
 on:
   push:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 6 * * *'
 
 env:
     GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
