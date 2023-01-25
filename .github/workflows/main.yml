@@ -9,6 +9,7 @@ env:
     GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
     TELEGRAM_CHAT: ${{ secrets.TELEGRAM_CHAT }}
     TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+    BRANCH: main
   
 jobs:
   goBuild:
@@ -17,6 +18,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Building
       run: |
-        git clone https://github.com/XSans0/clang-build script
+        git clone -b main https://github.com/XSans0/clang-build script
         cd script
-        bash build-ci.sh main
+        sudo apt update && sudo apt upgrade
+        bash ci.sh deps
+        bash build.sh
